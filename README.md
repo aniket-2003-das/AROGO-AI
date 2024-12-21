@@ -3,6 +3,7 @@
 ## Overview
 
 This project predicts whether a shipment will be delayed or arrive on time based on historical logistics data. The model uses machine learning techniques to analyze various factors such as origin, destination, vehicle type, distance, weather, and traffic conditions.
+Deployed the Flask API Endpoint accessible <https://arogo-ai-api.onrender.com/Arogo_AI_API>
 
 ---
 
@@ -44,15 +45,13 @@ This project predicts whether a shipment will be delayed or arrive on time based
 
 ```plaintext
 shipment-delay-prediction/
-├── data/                 # Dataset files (if included)
-├── notebooks/            # Jupyter notebooks for EDA and modeling
-├── models/               # Trained models and related files
-├── app/                  # Flask or FastAPI application files
-│   ├── main.py           # API entry point
-│   ├── model.pkl         # Saved ML model
-│   ├── requirements.txt  # Python dependencies
-├── README.md             # Project documentation
-├── LICENSE               # License file
+├── AI_ML_Internship_Problems.csv   # Dataset files
+├── Shipment Delay Prediction.ipynb # Jupyter notebooks for EDA and modeling
+├── shipment_delay_model.pkl        # Trained models
+├── app.py                          # Flask API 
+├── requirements.txt                # Python dependencies
+├── README.md                       # Project documentation
+├── LICENSE                         # License file
 ```
 
 ---
@@ -62,7 +61,7 @@ shipment-delay-prediction/
 1. Clone this repository:
 
    ```bash
-   git clone <repository_url>
+   git clone <https://github.com/aniket-2003-das/AROGO-AI.git>
    cd shipment-delay-prediction
    ```
 
@@ -70,7 +69,7 @@ shipment-delay-prediction/
 
    ```bash
    python3 -m venv venv
-   source venv/bin/activate   # On Windows: venv\Scripts\activate
+   source venv/Scripts/activate
    ```
 
 3. Install required packages:
@@ -81,9 +80,9 @@ shipment-delay-prediction/
 
 ---
 
-## Usage
+## Implementation
 
-### Running the API
+### Running the API Locally
 
 1. Start the API server:
 
@@ -92,7 +91,7 @@ shipment-delay-prediction/
    python main.py
    ```
 
-2. The API will be accessible at `http://127.0.0.1:8000`.
+2. The API will be accessible at <http://127.0.0.1:8000/Arogo_AI_API>
 
 ### API Endpoints
 
@@ -104,10 +103,6 @@ shipment-delay-prediction/
 
 ```json
 {
-  "shipment_id": "12345",
-  "origin": "Delhi",
-  "destination": "Mumbai",
-  "shipment_date": "2024-12-21",
   "vehicle_type": "Truck",
   "distance": 1400,
   "weather_conditions": "Clear",
@@ -119,47 +114,48 @@ shipment-delay-prediction/
 
 ```json
 {
-  "prediction": "On Time",
-  "probability": 0.85
+  "Prediction": "On Time",
 }
 ```
 
 ---
 
-## Approach
+## Solution Approach
 
 ### Data Preparation
 
 - Cleaned dataset by removing missing values and inconsistencies.
 - Encoded categorical variables (e.g., weather and traffic conditions).
-- Scaled numerical variables like distance.
+- custom categorized numerical variables like distance.
+- Droped irrelevant variables like Shipment IDs and dates.
 
 ### Model Development
 
 - Built and evaluated Logistic Regression, Decision Tree, and Random Forest models.
-- Chose the best model based on F1 score and recall for imbalanced target variable.
+- The best model based on F1 score and recall for imbalanced target variable is choosed.
 
 ### Deployment
 
 - Created a REST API using Flask.
 - Integrated the trained model into the API for real-time predictions.
+- Deployed the Flask API Endpoint on <https://arogo-ai-api.onrender.com/Arogo_AI_API>
 
 ---
 
 ## Results
 
-| Metric          | Logistic Regression | Decision Tree | Random Forest |
-|-----------------|---------------------|---------------|---------------|
-| Accuracy        | 85.2%               | 88.1%         | 90.3%         |
-| Precision       | 83.5%               | 86.0%         | 89.1%         |
-| Recall          | 84.7%               | 87.5%         | 91.2%         |
-| F1 Score        | 84.1%               | 86.7%         | 90.1%         |
+| Metric          | Model.pkl           |
+|-----------------|---------------------|
+| Accuracy        | 90.6%               |
+| Precision       | 71.4%               |
+| Recall          |  100%               |
+| F1 Score        | 83.3%               |
 
 ---
 
 ## Future Work
 
-- Improve feature engineering for weather and traffic conditions.
+- Improve feature engineering based on Origin and Destination.
 - Experiment with advanced models like Gradient Boosting or Neural Networks.
 - Add live data integration for real-time predictions.
 
@@ -173,11 +169,11 @@ This project is licensed under the MIT License. See the `LICENSE` file for detai
 
 ## Author
 
-- [Your Name]
-- AI/ML Internship Project Submission
+- [Aniket Das]
+- AI/ML Internship Project Submission for Arogo AI
 
 ---
 
 ## Contact
 
-For any questions, please contact [your-email@example.com].
+For any questions, please contact [aniketdas8822@gmail.com].
